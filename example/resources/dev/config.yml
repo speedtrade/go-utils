@@ -1,0 +1,8 @@
+logger:
+  consoleLoggingEnabled: true
+  fileName: logs/access.log
+  errorFileName: logs/error.log
+  maxSizeInMB: 1024
+  maxBackups: 10
+  maxAgeInDays: 2
+  compress: true

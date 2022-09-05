@@ -1,86 +1,10 @@
-# go-utils
-
-Go utils contains the set of common reusable utility methods which can be reused across all Go projects.
-
-## Installation
-
-To install `go-utils` package, you need to install Go and set your Go workspace first.
-
-1. The first need Go installed (version 1.17+ is required), then you can use the below Go command to install go-utils.
-
-```shell
-go get github.com/speed-trade/go-utils
-```
-4. Import it in your code:
-
-```go
-package main
-
-import "github.com/speed-trade/go-utils"
-```
-
-## Usage
-
-### Reading Config
-
-Config file is located at resources/dev directory and name is config.yml.
-```yml
-logger:
-  consoleLoggingEnabled: true
-  fileName: logs/access.log
-  errorFileName: logs/error.log
-  maxSizeInMB: 1024
-  maxBackups: 10
-  maxAgeInDays: 2
-  compress: true
-```
-Go code to read above config.yml file
-```go
 package main
 
 import (
 	"log"
 
 	"github.com/speed-trade/go-utils/config"
-)
-
-const (
-	LoggerConsoleEnabled = "logger.consoleLoggingEnabled"
-	LoggerFileName       = "logger.fileName"
-	LoggerErrorFileName  = "logger.errorFileName"
-	LoggerMaxSizeInMB    = "logger.maxSizeInMB"
-	LoggerMaxBackUps     = "logger.maxBackups"
-	LoggerMaxAgeInDays   = "logger.maxAgeInDays"
-	LoggerCompress       = "logger.compress"
-)
-
-func main() {
-	config.Init("resources/dev")
-
-	conf, err := config.Get("config")
-
-	if err != nil {
-		log.Fatal("error getting config err : ", err)
-	}
-
-	log.Println("Logger Filename : ", conf.GetString(LoggerFileName))
-	log.Println("Logger Error Filename : ", conf.GetString(LoggerErrorFileName))
-	log.Println("Logger Max Size In MB : ", conf.GetString(LoggerMaxSizeInMB))
-	log.Println("Logger Max Back Ups : ", conf.GetString(LoggerMaxBackUps))
-}
-```
-
-### Logger
-
-The logger is based on uber-zap module.
-
-```go
-package main
-
-import (
-	"log"
-
-	"github.com/speed-trade/go-utils/config"
+	"github.com/speed-trade/go-utils/flags"
 	"github.com/speed-trade/go-utils/logger"
 	"github.com/speed-trade/go-utils/model"
 )
@@ -96,7 +20,7 @@ const (
 )
 
 func main() {
-	config.Init("resources/dev")
+	config.Init(flags.BaseConfigPath() + "/" + flags.Env())
 
 	conf, err := config.Get("config")
 
@@ -145,4 +69,3 @@ func main() {
 		logger.Error("example:", logger.String("app", "crash"), logger.Int("reason", -1))
 	}
 }
-```
