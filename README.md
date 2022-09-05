@@ -146,3 +146,6 @@ func main() {
 	}
 }
 ```
+
+### Logger Ref.
+https://www.sobyte.net/post/2022-03/uber-zap-advanced-usage
