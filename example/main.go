@@ -3,10 +3,10 @@ package main
 import (
 	"log"
 
-	"github.com/speed-trade/go-utils/config"
-	"github.com/speed-trade/go-utils/flags"
-	"github.com/speed-trade/go-utils/logger"
-	"github.com/speed-trade/go-utils/model"
+	"github.com/speedtrade/go-utils/config"
+	"github.com/speedtrade/go-utils/flags"
+	"github.com/speedtrade/go-utils/logger"
+	"github.com/speedtrade/go-utils/model"
 )
 
 const (

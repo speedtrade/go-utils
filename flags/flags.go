@@ -1,7 +1,7 @@
 package flags
 
 import (
-	"github.com/speed-trade/go-utils/constants"
+	"github.com/speedtrade/go-utils/constants"
 	flag "github.com/spf13/pflag"
 )
 

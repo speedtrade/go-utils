@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/speed-trade/go-utils/model"
+	"github.com/speedtrade/go-utils/model"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
