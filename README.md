@@ -9,14 +9,14 @@ To install `go-utils` package, you need to install Go and set your Go workspace 
 1. The first need Go installed (version 1.17+ is required), then you can use the below Go command to install go-utils.
 
 ```shell
-go get github.com/speed-trade/go-utils
+go get github.com/speedtrade/go-utils
 ```
 4. Import it in your code:
 
 ```go
 package main
 
-import "github.com/speed-trade/go-utils"
+import "github.com/speedtrade/go-utils"
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ package main
 import (
 	"log"
 
-	"github.com/speed-trade/go-utils/config"
+	"github.com/speedtrade/go-utils/config"
 )
 
 const (
@@ -80,9 +80,9 @@ package main
 import (
 	"log"
 
-	"github.com/speed-trade/go-utils/config"
-	"github.com/speed-trade/go-utils/logger"
-	"github.com/speed-trade/go-utils/model"
+	"github.com/speedtrade/go-utils/config"
+	"github.com/speedtrade/go-utils/logger"
+	"github.com/speedtrade/go-utils/model"
 )
 
 const (
