@@ -185,6 +185,16 @@ func NewTeeWithRotate(tops []TeeOption, opts ...Option) *Logger {
 			lv,
 		)
 		cores = append(cores, core)
+
+		if top.Logopt.ConsoleLoggingEnabled {
+			core = zapcore.NewCore(
+				zapcore.NewConsoleEncoder(cfg.EncoderConfig),
+				zapcore.AddSync(os.Stdout),
+				lv,
+			)
+			cores = append(cores, core)
+		}
+
 	}
 
 	logger := &Logger{

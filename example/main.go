@@ -37,11 +37,12 @@ func main() {
 		{
 
 			Logopt: model.LoggerOptions{
-				Filename:   conf.GetString(LoggerFileName),
-				MaxSize:    conf.GetInt(LoggerMaxSizeInMB),
-				MaxAge:     conf.GetInt(LoggerMaxAgeInDays),
-				MaxBackups: conf.GetInt(LoggerMaxBackUps),
-				Compress:   conf.GetBool(LoggerCompress),
+				ConsoleLoggingEnabled: conf.GetBool(LoggerConsoleEnabled),
+				Filename:              conf.GetString(LoggerFileName),
+				MaxSize:               conf.GetInt(LoggerMaxSizeInMB),
+				MaxAge:                conf.GetInt(LoggerMaxAgeInDays),
+				MaxBackups:            conf.GetInt(LoggerMaxBackUps),
+				Compress:              conf.GetBool(LoggerCompress),
 			},
 			Lef: func(lvl logger.Level) bool {
 				return lvl <= logger.InfoLevel
@@ -49,11 +50,12 @@ func main() {
 		},
 		{
 			Logopt: model.LoggerOptions{
-				Filename:   conf.GetString(LoggerErrorFileName),
-				MaxSize:    conf.GetInt(LoggerMaxSizeInMB),
-				MaxAge:     conf.GetInt(LoggerMaxAgeInDays),
-				MaxBackups: conf.GetInt(LoggerMaxBackUps),
-				Compress:   conf.GetBool(LoggerCompress),
+				ConsoleLoggingEnabled: conf.GetBool(LoggerConsoleEnabled),
+				Filename:              conf.GetString(LoggerErrorFileName),
+				MaxSize:               conf.GetInt(LoggerMaxSizeInMB),
+				MaxAge:                conf.GetInt(LoggerMaxAgeInDays),
+				MaxBackups:            conf.GetInt(LoggerMaxBackUps),
+				Compress:              conf.GetBool(LoggerCompress),
 			},
 			Lef: func(lvl logger.Level) bool {
 				return lvl > logger.InfoLevel
